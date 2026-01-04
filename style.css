@@ -1,0 +1,254 @@
+/* CSS Variables for Consistent Theming */
+:root {
+  --bg-primary: #f8fafc; /* Slate-50 */
+  --text-primary: #0f172a; /* Slate-900 */
+  --text-secondary: #475569; /* Slate-600 */
+  --card-bg: #ffffff;
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --accent-color: #059669; /* Emerald-600 */
+  --accent-hover: #047857; /* Emerald-700 */
+  --transition-speed: 0.3s;
+  --card-border: 1px solid #e2e8f0; /* Slate-200 */
+}
+
+/* Dark Mode Variables */
+.dark {
+  --bg-primary: #0f172a; /* Slate-900 - Rich dark blue/gray */
+  --text-primary: #f8fafc; /* Slate-50 - High contrast white */
+  --text-secondary: #cbd5e1; /* Slate-300 - Readable secondary text */
+  --card-bg: #1e293b; /* Slate-800 - Lighter than background for depth */
+  --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5),
+    0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  /* Improved dark mode colors */
+  --card-border: 1px solid #334155; /* Slate-700 */
+  --accent-color: #34d399; /* Emerald-400 - Constant brightness */
+  --accent-hover: #10b981; /* Emerald-500 */
+}
+
+/* Base Styles */
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+p,
+span,
+li,
+.text-muted {
+  color: var(--text-primary); /* Default fallback */
+}
+/* Helper utility for secondary text */
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+/* Common Transitions */
+body,
+.main-header,
+nav,
+footer,
+.card-base,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span {
+  transition: background-color var(--transition-speed) ease-in-out,
+    color var(--transition-speed) ease-in-out,
+    border-color var(--transition-speed) ease-in-out;
+}
+
+/* Sticky Header & Navigation Styles */
+.main-header,
+nav {
+  background-color: rgba(
+    248,
+    250,
+    252,
+    0.85
+  ); /* var(--bg-primary) with opacity */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.dark .main-header,
+.dark nav {
+  background-color: rgba(15, 23, 42, 0.85); /* var(--bg-primary) with opacity */
+}
+
+/* Card Styles */
+.card-base {
+  background-color: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  border: var(--card-border);
+}
+
+/* Navigation Active Link */
+.nav-link.active {
+  font-weight: 600;
+  /* Border removed in favor of sliding indicator */
+}
+
+.dark .nav-link.active {
+  color: var(--accent-light);
+}
+
+/* Progress Bar Animation */
+.progress-bar-fill {
+  transition: width 1.5s ease-out;
+  animation: fill-bar 1.5s ease-out forwards;
+}
+
+@keyframes fill-bar {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: var(--progress-width);
+  }
+}
+
+/* Interactive Hover Effects */
+.interactive-element:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 25px -5px rgba(16, 185, 129, 0.2); /* Soft emerald glow */
+}
+
+/* Theme Toggle Animation */
+#theme-toggle svg {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#theme-toggle:hover svg {
+  transform: rotate(15deg) scale(1.1);
+}
+
+/* Utility to hide scrollbar */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  /* p-3 */
+  .main-header {
+    padding: 0.75rem;
+  }
+}
+
+/* Scroll Animation Styles */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered Delays */
+.delay-100 {
+  transition-delay: 0.1s;
+}
+.delay-200 {
+  transition-delay: 0.2s;
+}
+.delay-300 {
+  transition-delay: 0.3s;
+}
+
+/* Print Styles for ATS-Friendly PDF */
+@media print {
+  /* Hide UI Elements */
+  .main-header,
+  nav,
+  #download-btn,
+  .no-print,
+  footer,
+  #theme-toggle {
+    display: none !important;
+  }
+
+  /* Reset Layout and Colors */
+  body {
+    background: white !important;
+    color: black !important;
+    font-family: "Inter", sans-serif !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  #app {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .card-base {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin-bottom: 2rem !important;
+  }
+
+  /* Ensure Text Visibility */
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  span,
+  li {
+    color: #000 !important;
+    text-shadow: none !important;
+  }
+
+  /* Links */
+  a {
+    text-decoration: none !important;
+    color: #000 !important;
+  }
+
+  /* Page Breaks */
+  section,
+  .card-base {
+    break-inside: avoid;
+  }
+
+  /* Specific Adjustments */
+  .section-title i {
+    display: none !important; /* Hide icons in headers for cleaner text */
+  }
+
+  /* Layout Adjustments */
+  #profile {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 2rem !important;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 2rem !important;
+  }
+
+  /* Social Icons in Print */
+  .fa-brands,
+  .fa-solid {
+    color: #000 !important;
+  }
+}
