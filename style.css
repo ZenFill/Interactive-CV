@@ -72,8 +72,8 @@ nav {
     252,
     0.85
   ); /* var(--bg-primary) with opacity */
-  backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
 }
 
 .dark .main-header,
@@ -129,13 +129,22 @@ nav {
 }
 
 /* Utility to hide scrollbar */
+
+/* For Webkit-based browsers (Chrome, Safari and Opera) */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
 
+/* For IE and Edge */
 .scrollbar-hide {
   -ms-overflow-style: none;
-  scrollbar-width: none;
+}
+
+/* For Firefox and Modern Browsers */
+@supports (scrollbar-width: none) {
+  .scrollbar-hide {
+    scrollbar-width: none;
+  }
 }
 
 /* Responsive adjustments */
