@@ -8,20 +8,25 @@
 // [PANDUAN]: Ubah data di bawah ini sesuai keahlian Anda. Level: 0 - 100.
 // Frontend
 const frontendSkills = [
-  { name: "HTML5 & CSS3", level: 90 },
-  { name: "JavaScript (ES6+)", level: 85 },
-  { name: "Tailwind CSS", level: 90 },
+  { name: "HTML5 & CSS3", level: 90, icon: "fa-brands fa-html5" },
+  { name: "JavaScript (ES6+)", level: 85, icon: "fa-brands fa-js" },
+  { name: "Tailwind CSS", level: 90, icon: "fa-solid fa-wind" },
 ];
 
 // Backend
 const backendSkills = [
-  { name: "PHP", level: 80 },
-  { name: "Laravel", level: 75 },
-  { name: "MySQL", level: 80 },
+  { name: "PHP", level: 80, icon: "fa-brands fa-php" },
+  { name: "Laravel", level: 75, icon: "fa-brands fa-laravel" },
+  { name: "MySQL", level: 80, icon: "fa-solid fa-database" },
 ];
 
 // Tools / DevOps (Badges only)
-const devOpsTools = ["Git", "GitHub", "VS Code", "Postman"];
+const devOpsTools = [
+  { name: "Git", icon: "fa-brands fa-git-alt" },
+  { name: "GitHub", icon: "fa-brands fa-github" },
+  { name: "VS Code", icon: "fa-solid fa-code" },
+  { name: "Postman", icon: "fa-solid fa-paper-plane" },
+];
 
 // --- Fungsi Utama JavaScript ---
 
@@ -52,32 +57,48 @@ function renderSkills() {
     return;
   }
 
-  // Render Progress Bar
-  const renderProgressBar = (skill) => `
-                <div class="interactive-element">
-                    <div class="flex justify-between mb-1">
-                        <span class="font-medium text-sm">${skill.name}</span>
-                        <span class="text-xs font-semibold text-emerald-600 dark:text-emerald-400">${skill.level}%</span>
+  // Render Skill Item (Modern Card Style)
+  const renderSkillItem = (skill, colorClass) => `
+                <div class="interactive-element bg-gray-50 dark:bg-slate-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700 flex items-center gap-4 hover:shadow-md transition-shadow duration-300">
+                    <div class="p-3 ${colorClass} bg-opacity-10 dark:bg-opacity-20 rounded-lg text-2xl">
+                        <i class="${skill.icon}"></i>
                     </div>
-                    <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 overflow-hidden">
-                        <div class="progress-bar-fill bg-emerald-500 h-2.5 rounded-full" style="--progress-width: ${skill.level}%"></div>
+                    <div class="flex-1">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-bold text-gray-700 dark:text-gray-200">${
+                              skill.name
+                            }</span>
+                            <span class="text-xs font-bold ${colorClass.replace(
+                              "bg-",
+                              "text-"
+                            )}">${skill.level}%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2 dark:bg-gray-700 overflow-hidden">
+                            <div class="progress-bar-fill ${colorClass} h-2 rounded-full" style="--progress-width: ${
+    skill.level
+  }%"></div>
+                        </div>
                     </div>
                 </div>
             `;
 
-  frontendContainer.innerHTML = frontendSkills.map(renderProgressBar).join("");
-  backendContainer.innerHTML = backendSkills.map(renderProgressBar).join("");
+  // Render Tool Item (Chip Style)
+  const renderToolItem = (tool) => `
+        <div class="interactive-element flex items-center gap-2 bg-gray-100 dark:bg-slate-700 px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600 hover:bg-white dark:hover:bg-slate-600 transition-colors shadow-sm">
+            <i class="${tool.icon} text-indigo-500 dark:text-indigo-400"></i>
+            <span class="font-medium text-sm text-gray-700 dark:text-gray-200">${tool.name}</span>
+        </div>
+    `;
 
-  // Render Badges
-  devopsContainer.innerHTML = devOpsTools
-    .map(
-      (tool) => `
-                <span class="badge bg-indigo-500 text-white px-3 py-1 text-sm rounded-full font-medium hover:bg-indigo-600 transition duration-150 cursor-default">
-                    ${tool}
-                </span>
-            `
-    )
+  frontendContainer.innerHTML = frontendSkills
+    .map((s) => renderSkillItem(s, "bg-emerald-500"))
     .join("");
+  backendContainer.innerHTML = backendSkills
+    .map((s) => renderSkillItem(s, "bg-blue-500"))
+    .join("");
+
+  // Render Badges (Tools)
+  devopsContainer.innerHTML = devOpsTools.map(renderToolItem).join("");
 }
 
 /**
