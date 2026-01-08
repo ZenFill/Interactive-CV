@@ -58,34 +58,43 @@ function renderSkills() {
   }
 
   // Render Skill Item (Modern Card Style)
-  const renderSkillItem = (skill, colorClass) => `
-                <div class="interactive-element bg-gray-50 dark:bg-slate-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700 flex items-center gap-4 hover:shadow-md transition-shadow duration-300">
+  const renderSkillItem = (skill, colorClass) => {
+    // Extract text color class from bg class (e.g. bg-emerald-500 -> text-emerald-500)
+    const textColorClass = colorClass.replace("bg-", "text-");
+
+    return `
+                <div class="interactive-element bg-gray-50 dark:bg-slate-700/50 p-4 rounded-xl border border-gray-100 dark:border-gray-600 flex items-center gap-4 hover:shadow-md transition-shadow duration-300">
                     <div class="p-3 ${colorClass} bg-opacity-10 dark:bg-opacity-20 rounded-lg text-2xl">
-                        <i class="${skill.icon}"></i>
+                        <i class="${
+                          skill.icon
+                        } ${textColorClass} dark:${textColorClass.replace(
+      "500",
+      "400"
+    )}"></i>
                     </div>
                     <div class="flex-1">
                         <div class="flex justify-between mb-2">
                             <span class="font-bold text-gray-700 dark:text-gray-200">${
                               skill.name
                             }</span>
-                            <span class="text-xs font-bold ${colorClass.replace(
-                              "bg-",
-                              "text-"
-                            )}">${skill.level}%</span>
+                            <span class="text-xs font-bold ${textColorClass}">${
+      skill.level
+    }%</span>
                         </div>
                         <div class="w-full bg-gray-200 rounded-full h-2 dark:bg-gray-700 overflow-hidden">
                             <div class="progress-bar-fill ${colorClass} h-2 rounded-full" style="--progress-width: ${
-    skill.level
-  }%"></div>
+      skill.level
+    }%"></div>
                         </div>
                     </div>
                 </div>
             `;
+  };
 
   // Render Tool Item (Chip Style)
   const renderToolItem = (tool) => `
         <div class="interactive-element flex items-center gap-2 bg-gray-100 dark:bg-slate-700 px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600 hover:bg-white dark:hover:bg-slate-600 transition-colors shadow-sm">
-            <i class="${tool.icon} text-indigo-500 dark:text-indigo-400"></i>
+            <i class="${tool.icon} text-indigo-600 dark:text-indigo-400"></i>
             <span class="font-medium text-sm text-gray-700 dark:text-gray-200">${tool.name}</span>
         </div>
     `;
