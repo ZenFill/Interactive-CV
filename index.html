@@ -41,339 +41,384 @@
             </button>
         </header>
 
-        <!-- Bagian Profil Utama (Sidebar/Header di Mobile) -->
-        <section id="profile" class="card-base p-6 md:p-8 rounded-xl md:flex gap-8 mb-10 interactive-element">
+        <!-- Main Content -->
+        <main class="w-full relative z-10">
+            <!-- Profile Section (Stable Modern Glass Style) -->
+            <section id="profile" class="mb-12 scroll-mt-32">
+                <div
+                    class="relative bg-white/80 dark:bg-slate-800/90 backdrop-blur-xl rounded-3xl p-8 md:p-12 shadow-2xl border border-white/50 dark:border-gray-700 overflow-hidden">
 
-            <!-- Foto Profil dan Kontak -->
-            <div class="md:w-1/3 text-center md:text-left mb-6 md:mb-0">
-                <img src="assets/foto.jpg" alt="Foto Profil"
-                    class="rounded-full w-40 h-40 mx-auto md:mx-0 object-cover object-[50%_0%] shadow-2xl hover:scale-105 transition-transform duration-300">
-                <h2 class="text-3xl sm:text-4xl font-bold mt-4">AL ZENDRY FILLAH AKBARY</h2>
-                <p class="text-xl font-medium text-indigo-600 dark:text-indigo-400 mb-4">Junior Fullstack Developer</p>
-
-                <!-- Social Icons -->
-                <div class="flex justify-center md:justify-start gap-6 mt-6">
-                    <!-- LinkedIn -->
-                    <a href="https://www.linkedin.com/in/al-zendry-fillah-akbary-5aa5b129b" target="_blank"
-                        rel="noopener noreferrer"
-                        class="text-blue-600 hover:text-blue-700 dark:hover:text-blue-500 transition-colors duration-300 transform hover:scale-110"
-                        title="LinkedIn">
-                        <i class="fa-brands fa-linkedin text-3xl"></i>
-                    </a>
-                    <!-- Gmail -->
-                    <a href="mailto:alzendryfillahakbary@gmail.com"
-                        class="text-red-500 hover:text-red-600 dark:hover:text-red-400 transition-colors duration-300 transform hover:scale-110"
-                        title="Gmail">
-                        <i class="fa-solid fa-envelope text-3xl"></i>
-                    </a>
-                    <!-- Discord -->
-                    <a href="https://discord.com/users/915819646966456362" target="_blank" rel="noopener noreferrer"
-                        class="text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300 transform hover:scale-110"
-                        title="Discord">
-                        <i class="fa-brands fa-discord text-3xl"></i>
-                    </a>
-                    <!-- WhatsApp -->
-                    <a href="https://wa.me/+6287754447702" target="_blank" rel="noopener noreferrer"
-                        class="text-green-500 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-300 transform hover:scale-110"
-                        title="WhatsApp">
-                        <i class="fa-brands fa-whatsapp text-3xl"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Ringkasan Profil -->
-            <div class="md:w-2/3">
-                <h3 class="text-2xl font-semibold border-b-2 pb-2 mb-4 border-emerald-500">Ringkasan Profil</h3>
-                <p class="text-base leading-relaxed text-secondary">
-                    Mahasiswa Sistem Komputer dengan fokus studi pada pengembangan perangkat lunak dan
-                    teknologi web. Memiliki semangat belajar yang tinggi dengan konsistensi mengikuti berbagai pelatihan
-                    dan sertifikasi teknis untuk meningkatkan kompetensi. Menguasai dasar-dasar HTML, CSS,
-                    JavaScript, PHP, Tailwind CSS, Laravel, GIT, serta siap menerapkan ilmu yang didapat untuk
-                    berkontribusi dalam
-                    lingkungan profesional.
-                </p>
-
-                <!-- Tombol Aksi -->
-                <div class="mt-6 flex flex-col sm:flex-row gap-4 no-print">
-                    <button id="download-btn" onclick="window.print()"
-                        class="w-full sm:w-auto text-center bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 shadow-lg shadow-indigo-500/50 cursor-pointer">
-                        <i class="fa-solid fa-file-pdf mr-2"></i> Unduh PDF CV
-                    </button>
-                    <a href="https://github.com/ZenFill" target="_blank" rel="noopener noreferrer"
-                        class="w-full sm:w-auto text-center bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 shadow-lg shadow-emerald-500/50">
-                        <i class="fa-brands fa-github mr-2"></i> Kunjungi Portofolio
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Navigasi Internal -->
-        <nav
-            class="sticky top-[75px] sm:top-[68px] border-b border-gray-200 dark:border-gray-700 mb-8 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm transition-colors duration-300">
-            <div class="relative flex overflow-x-auto whitespace-nowrap scrollbar-hide">
-                <a href="#experience"
-                    class="nav-link py-3 px-4 text-center text-sm sm:text-base hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-150"
-                    onclick="handleNavClick(event, 'experience')">Pengalaman</a>
-                <a href="#education"
-                    class="nav-link py-3 px-4 text-center text-sm sm:text-base hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-150"
-                    onclick="handleNavClick(event, 'education')">Pendidikan</a>
-                <a href="#skills"
-                    class="nav-link py-3 px-4 text-center text-sm sm:text-base hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-150"
-                    onclick="handleNavClick(event, 'skills')">Keahlian Teknis</a>
-                <a href="#projects"
-                    class="nav-link py-3 px-4 text-center text-sm sm:text-base hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-150"
-                    onclick="handleNavClick(event, 'projects')">Proyek Utama</a>
-                <a href="#awards"
-                    class="nav-link py-3 px-4 text-center text-sm sm:text-base hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-150"
-                    onclick="handleNavClick(event, 'awards')">Sertifikasi</a>
-
-                <!-- Sliding Indicator -->
-                <div id="nav-indicator"
-                    class="absolute bottom-0 h-1 bg-indigo-600 dark:bg-indigo-400 transition-all duration-300 ease-out rounded-full shadow-[0_0_10px_rgba(79,70,229,0.5)]">
-                </div>
-            </div>
-        </nav>
-
-        <!-- Konten CV Utama -->
-        <main class="space-y-12">
-
-            <!-- Pengalaman Kerja -->
-            <section id="experience" class="scroll-mt-32">
-                <h3
-                    class="section-title text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-6 flex items-center">
-                    <i class="fa-solid fa-briefcase mr-3"></i> Pengalaman Kerja
-                </h3>
-
-                <div class="space-y-8">
-                    <!-- Item Pengalaman 1 -->
-                    <div class="card-base p-6 rounded-lg interactive-element border-l-4 border-emerald-500">
-                        <div class="flex justify-between items-start flex-wrap">
-                            <h4 class="text-xl font-semibold">[Posisi / Jabatan 1]</h4>
-                            <span class="text-sm font-medium text-secondary">[Bulan Tahun] - [Bulan Tahun /
-                                Sekarang]</span>
-                        </div>
-                        <p class="text-lg text-secondary mb-3">[Nama Perusahaan]</p>
-                        <ul class="list-disc list-inside text-sm space-y-2 text-secondary">
-                            <li>[Deskripsi pencapaian atau tanggung jawab utama]</li>
-                            <li>[Deskripsi pencapaian atau tanggung jawab utama]</li>
-                            <li>[Deskripsi pencapaian atau tanggung jawab utama]</li>
-                        </ul>
+                    <!-- Subtle Static Gradient Background (No moving blobs for stability) -->
+                    <div
+                        class="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none">
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none">
                     </div>
 
-                    <!-- Item Pengalaman 2 -->
-                    <div class="card-base p-6 rounded-lg interactive-element border-l-4 border-emerald-500">
-                        <div class="flex justify-between items-start flex-wrap">
-                            <h4 class="text-xl font-semibold">[Posisi / Jabatan 2]</h4>
-                            <span class="text-sm font-medium text-secondary">[Bulan Tahun] - [Bulan Tahun]</span>
-                        </div>
-                        <p class="text-lg text-secondary mb-3">[Nama Perusahaan]</p>
-                        <ul class="list-disc list-inside text-sm space-y-2 text-secondary">
-                            <li>[Deskripsi pencapaian atau tanggung jawab utama]</li>
-                            <li>[Deskripsi pencapaian atau tanggung jawab utama]</li>
-                            <li>[Deskripsi pencapaian atau tanggung jawab utama]</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+                    <div class="relative z-10 flex flex-col md:flex-row items-center gap-10 md:gap-16">
 
-            <!-- Pendidikan -->
-            <section id="education" class="scroll-mt-32">
-                <h3
-                    class="section-title text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-6 flex items-center">
-                    <i class="fa-solid fa-graduation-cap mr-3"></i> Pendidikan
-                </h3>
-
-                <div class="space-y-6">
-                    <!-- Item Pendidikan 1 -->
-                    <div class="card-base p-6 rounded-lg interactive-element border-l-4 border-indigo-500">
-                        <div class="flex justify-between items-start flex-wrap">
-                            <h4 class="text-xl font-semibold">Sarjana Sistem Komputer</h4>
-                            <span class="text-sm font-medium text-secondary">2023 - Sekarang</span>
-                        </div>
-                        <p class="text-lg text-secondary">Universitas Sains dan Teknologi Komputer (STEKOM)</p>
-                        <p class="text-sm text-secondary">IPK: 3.82 / 4.0</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Keahlian Teknis (Skills) -->
-            <section id="skills" class="scroll-mt-32">
-                <h3
-                    class="section-title text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-6 flex items-center">
-                    <i class="fa-solid fa-microchip mr-3"></i> Keahlian Teknis & Tools
-                </h3>
-
-                <div class="card-base p-6 rounded-lg">
-                    <!-- Kategori Keahlian -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-                        <!-- Kategori 1: Frontend -->
-                        <div>
-                            <h4 class="text-xl font-semibold mb-3 text-emerald-500">Frontend Development</h4>
-                            <div id="frontend-skills" class="space-y-4">
-                                <!-- Data skills akan di-render oleh JS -->
+                        <!-- Profile Image Container -->
+                        <div class="relative flex-shrink-0">
+                            <div
+                                class="absolute -inset-2 bg-gradient-to-br from-indigo-500 to-emerald-500 rounded-full opacity-20 blur-lg">
+                            </div>
+                            <img src="assets/foto.jpg" alt="Foto Profil Al Zendry Fillah Akbary"
+                                class="relative rounded-full w-48 h-48 md:w-56 md:h-56 object-cover object-[50%_15%] ring-4 ring-white dark:ring-slate-800 shadow-2xl">
+                            <!-- Status Badge -->
+                            <div
+                                class="absolute bottom-4 right-4 bg-white dark:bg-slate-800 rounded-full p-1.5 shadow-md border border-gray-100 dark:border-gray-600">
+                                <div
+                                    class="w-4 h-4 bg-emerald-500 rounded-full border-2 border-white dark:border-slate-800">
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Kategori 2: Backend & Database -->
-                        <div>
-                            <h4 class="text-xl font-semibold mb-3 text-emerald-500">Backend & Database</h4>
-                            <div id="backend-skills" class="space-y-4">
-                                <!-- Data skills akan di-render oleh JS -->
+                        <!-- Profile Info -->
+                        <div class="text-center md:text-left flex-1 min-w-0">
+                            <!-- Role Badge -->
+                            <div
+                                class="inline-flex items-center gap-2 px-3 py-1 mb-4 text-xs font-bold tracking-wider text-indigo-700 uppercase bg-indigo-50 rounded-full dark:bg-indigo-900/30 dark:text-indigo-300 border border-indigo-100 dark:border-indigo-800/50">
+                                <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
+                                Portfolio & Curriculum Vitae
                             </div>
-                        </div>
 
-                        <!-- Kategori 3: DevOps & Tools -->
-                        <div class="md:col-span-2">
-                            <h4 class="text-xl font-semibold mb-3 text-emerald-500">DevOps & Tools</h4>
-                            <div id="devops-skills" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                                <!-- Data badges akan di-render oleh JS -->
+                            <h2
+                                class="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-2">
+                                Al Zendry F. Akbary
+                            </h2>
+                            <p
+                                class="text-xl md:text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-emerald-600 dark:from-indigo-400 dark:to-emerald-400 mb-6">
+                                Junior Fullstack Developer
+                            </p>
+
+                            <p
+                                class="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto md:mx-0">
+                                Mahasiswa Sistem Komputer yang antusias membangun solusi web modern.
+                                Fokus pada penguasaan ekosistem <span
+                                    class="text-indigo-600 dark:text-indigo-400 font-semibold">Laravel</span> &
+                                <span class="text-indigo-600 dark:text-indigo-400 font-semibold">Tailwind CSS</span>
+                                untuk menciptakan pengalaman pengguna yang memikat.
+                            </p>
+
+                            <!-- Social Icons (Pill Style - Responsive Grid/Flex) -->
+                            <div class="flex flex-wrap justify-center md:justify-start gap-3 mb-8">
+                                <a href="https://www.linkedin.com/in/al-zendry-fillah-akbary-5aa5b129b" target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="group flex items-center gap-2 px-5 py-2.5 bg-gray-50 dark:bg-slate-700/50 hover:bg-blue-50 dark:hover:bg-blue-900/20 text-slate-700 dark:text-slate-200 border border-gray-200 dark:border-gray-600 rounded-full transition-all duration-300 hover:border-blue-200 dark:hover:border-blue-800 hover:shadow-lg hover:-translate-y-0.5">
+                                    <i
+                                        class="fa-brands fa-linkedin text-xl text-blue-600 group-hover:scale-110 transition-transform"></i>
+                                    <span class="font-medium">LinkedIn</span>
+                                </a>
+                                <a href="mailto:alzendryfillahakbary@gmail.com"
+                                    class="group flex items-center gap-2 px-5 py-2.5 bg-gray-50 dark:bg-slate-700/50 hover:bg-red-50 dark:hover:bg-red-900/20 text-slate-700 dark:text-slate-200 border border-gray-200 dark:border-gray-600 rounded-full transition-all duration-300 hover:border-red-200 dark:hover:border-red-800 hover:shadow-lg hover:-translate-y-0.5">
+                                    <i
+                                        class="fa-solid fa-envelope text-xl text-red-500 group-hover:scale-110 transition-transform"></i>
+                                    <span class="font-medium">Email</span>
+                                </a>
+                                <a href="https://discord.com/users/915819646966456362" target="_blank"
+                                    rel="noopener noreferrer" aria-label="Discord"
+                                    class="group flex items-center gap-2 px-5 py-2.5 bg-gray-50 dark:bg-slate-700/50 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 text-slate-700 dark:text-slate-200 border border-gray-200 dark:border-gray-600 rounded-full transition-all duration-300 hover:border-indigo-200 dark:hover:border-indigo-800 hover:shadow-lg hover:-translate-y-0.5">
+                                    <i
+                                        class="fa-brands fa-discord text-xl text-indigo-500 group-hover:scale-110 transition-transform"></i>
+                                </a>
+                                <a href="https://wa.me/+6287754447702" target="_blank" rel="noopener noreferrer"
+                                    aria-label="WhatsApp"
+                                    class="group flex items-center gap-2 px-5 py-2.5 bg-gray-50 dark:bg-slate-700/50 hover:bg-green-50 dark:hover:bg-green-900/20 text-slate-700 dark:text-slate-200 border border-gray-200 dark:border-gray-600 rounded-full transition-all duration-300 hover:border-green-200 dark:hover:border-green-800 hover:shadow-lg hover:-translate-y-0.5">
+                                    <i
+                                        class="fa-brands fa-whatsapp text-xl text-green-500 group-hover:scale-110 transition-transform"></i>
+                                </a>
+                            </div>
+
+                            <!-- Action Buttons -->
+                            <div class="flex flex-col sm:flex-row gap-4 no-print justify-center md:justify-start">
+                                <button id="download-btn" onclick="window.print()"
+                                    class="flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 px-8 rounded-xl transition duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-0.5">
+                                    <i class="fa-solid fa-file-pdf"></i>
+                                    <span>Unduh CV</span>
+                                </button>
+                                <a href="https://github.com/ZenFill" target="_blank" rel="noopener noreferrer"
+                                    class="flex items-center justify-center gap-2 bg-white dark:bg-slate-800 text-slate-800 dark:text-white font-bold py-3.5 px-8 rounded-xl border border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 transition duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+                                    <i class="fa-brands fa-github"></i>
+                                    <span>GitHub</span>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Proyek Utama -->
-            <section id="projects" class="scroll-mt-32">
-                <h3
-                    class="section-title text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-6 flex items-center">
-                    <i class="fa-solid fa-laptop-code mr-3"></i> Proyek Utama
-                </h3>
+            <!-- Navigasi Internal -->
+            <nav
+                class="sticky top-[75px] sm:top-[68px] border-b border-gray-200 dark:border-gray-700 mb-8 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm transition-colors duration-300">
+                <div class="relative flex overflow-x-auto whitespace-nowrap scrollbar-hide">
+                    <a href="#experience"
+                        class="nav-link py-3 px-4 text-center text-sm sm:text-base hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-150"
+                        onclick="handleNavClick(event, 'experience')">Pengalaman</a>
+                    <a href="#education"
+                        class="nav-link py-3 px-4 text-center text-sm sm:text-base hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-150"
+                        onclick="handleNavClick(event, 'education')">Pendidikan</a>
+                    <a href="#skills"
+                        class="nav-link py-3 px-4 text-center text-sm sm:text-base hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-150"
+                        onclick="handleNavClick(event, 'skills')">Keahlian Teknis</a>
+                    <a href="#projects"
+                        class="nav-link py-3 px-4 text-center text-sm sm:text-base hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-150"
+                        onclick="handleNavClick(event, 'projects')">Proyek Utama</a>
+                    <a href="#awards"
+                        class="nav-link py-3 px-4 text-center text-sm sm:text-base hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-150"
+                        onclick="handleNavClick(event, 'awards')">Sertifikasi</a>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Item Proyek 1 -->
-                    <div class="card-base p-6 rounded-lg interactive-element border-t-4 border-indigo-500">
-                        <h4 class="text-xl font-semibold mb-2">Project: [Nama Proyek 1]</h4>
-                        <p class="text-sm text-secondary mb-3">Tahun: [Tahun Proyek]</p>
-                        <p class="text-sm text-secondary mb-4">[Deskripsi singkat proyek. Jelaskan apa yang dibuat dan
-                            manfaatnya.]</p>
-                        <div class="flex flex-wrap gap-2 text-xs">
-                            <span
-                                class="bg-indigo-100 text-indigo-800 dark:bg-indigo-800 dark:text-indigo-100 px-2 py-1 rounded-full">[Tech
-                                1]</span>
-                            <span
-                                class="bg-indigo-100 text-indigo-800 dark:bg-indigo-800 dark:text-indigo-100 px-2 py-1 rounded-full">[Tech
-                                2]</span>
-                        </div>
-                    </div>
-
-                    <!-- Item Proyek 2 -->
-                    <div class="card-base p-6 rounded-lg interactive-element border-t-4 border-indigo-500">
-                        <h4 class="text-xl font-semibold mb-2">Project: [Nama Proyek 2]</h4>
-                        <p class="text-sm text-secondary mb-3">Tahun: [Tahun Proyek]</p>
-                        <p class="text-sm text-secondary mb-4">[Deskripsi singkat proyek. Jelaskan apa yang dibuat dan
-                            manfaatnya.]</p>
-                        <div class="flex flex-wrap gap-2 text-xs">
-                            <span
-                                class="bg-indigo-100 text-indigo-800 dark:bg-indigo-800 dark:text-indigo-100 px-2 py-1 rounded-full">[Tech
-                                1]</span>
-                            <span
-                                class="bg-indigo-100 text-indigo-800 dark:bg-indigo-800 dark:text-indigo-100 px-2 py-1 rounded-full">[Tech
-                                2]</span>
-                        </div>
-                    </div>
-
-                    <!-- Item Proyek 3 -->
-                    <div class="card-base p-6 rounded-lg interactive-element border-t-4 border-indigo-500">
-                        <h4 class="text-xl font-semibold mb-2">Project: [Nama Proyek 3]</h4>
-                        <p class="text-sm text-secondary mb-3">Tahun: [Tahun Proyek]</p>
-                        <p class="text-sm text-secondary mb-4">[Deskripsi singkat proyek. Jelaskan apa yang dibuat dan
-                            manfaatnya.]</p>
-                        <div class="flex flex-wrap gap-2 text-xs">
-                            <span
-                                class="bg-indigo-100 text-indigo-800 dark:bg-indigo-800 dark:text-indigo-100 px-2 py-1 rounded-full">[Tech
-                                1]</span>
-                            <span
-                                class="bg-indigo-100 text-indigo-800 dark:bg-indigo-800 dark:text-indigo-100 px-2 py-1 rounded-full">[Tech
-                                2]</span>
-                        </div>
+                    <!-- Sliding Indicator -->
+                    <div id="nav-indicator"
+                        class="absolute bottom-0 h-1 bg-indigo-600 dark:bg-indigo-400 transition-all duration-300 ease-out rounded-full shadow-[0_0_10px_rgba(79,70,229,0.5)]">
                     </div>
                 </div>
-            </section>
+            </nav>
 
-            <!-- Penghargaan & Sertifikasi -->
-            <section id="awards" class="scroll-mt-32">
-                <h3
-                    class="section-title text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-6 flex items-center">
-                    <i class="fa-solid fa-certificate mr-3"></i> Sertifikasi
-                </h3>
+            <!-- Konten CV Utama -->
+            <main class="space-y-12">
 
-                <div class="space-y-4">
-                    <!-- Sertifikasi 1: Cloud -->
-                    <div
-                        class="card-base p-4 rounded-lg interactive-element flex items-center gap-4 border-l-4 border-emerald-500">
-                        <div class="p-3 bg-emerald-100 dark:bg-emerald-900/30 rounded-full flex-shrink-0">
-                            <i class="fa-solid fa-cloud text-2xl text-emerald-600 dark:text-emerald-400"></i>
-                        </div>
-                        <div>
-                            <p class="font-semibold text-lg">Belajar Dasar AWS Cloud</p>
-                            <p class="text-sm text-secondary">Dicoding (2025)</p>
-                        </div>
-                    </div>
-                    <!-- Sertifikasi 2: JavaScript -->
-                    <div
-                        class="card-base p-4 rounded-lg interactive-element flex items-center gap-4 border-l-4 border-yellow-500">
-                        <div class="p-3 bg-yellow-100 dark:bg-yellow-900/30 rounded-full flex-shrink-0">
-                            <i class="fa-brands fa-js text-2xl text-yellow-600 dark:text-yellow-400"></i>
-                        </div>
-                        <div>
-                            <p class="font-semibold text-lg">Belajar Dasar Pemrograman JavaScript</p>
-                            <p class="text-sm text-secondary">Dicoding (2025)</p>
-                        </div>
-                    </div>
-                    <!-- Sertifikasi 3: Front-End -->
-                    <div
-                        class="card-base p-4 rounded-lg interactive-element flex items-center gap-4 border-l-4 border-blue-500">
-                        <div class="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-full flex-shrink-0">
-                            <i class="fa-solid fa-code text-2xl text-blue-600 dark:text-blue-400"></i>
-                        </div>
-                        <div>
-                            <p class="font-semibold text-lg">Belajar Membuat Front-End Web untuk Pemula</p>
-                            <p class="text-sm text-secondary">Dicoding (2025)</p>
-                        </div>
-                    </div>
-                    <!-- Sertifikasi 4: Web -->
-                    <div
-                        class="card-base p-4 rounded-lg interactive-element flex items-center gap-4 border-l-4 border-orange-500">
-                        <div class="p-3 bg-orange-100 dark:bg-orange-900/30 rounded-full flex-shrink-0">
-                            <i class="fa-solid fa-globe text-2xl text-orange-600 dark:text-orange-400"></i>
-                        </div>
-                        <div>
-                            <p class="font-semibold text-lg">Belajar Dasar Pemrograman Web</p>
-                            <p class="text-sm text-secondary">Dicoding (2024)</p>
-                        </div>
-                    </div>
-                    <!-- Sertifikasi 5: AI -->
-                    <div
-                        class="card-base p-4 rounded-lg interactive-element flex items-center gap-4 border-l-4 border-indigo-500">
-                        <div class="p-3 bg-indigo-100 dark:bg-indigo-900/30 rounded-full flex-shrink-0">
-                            <i class="fa-solid fa-robot text-2xl text-indigo-600 dark:text-indigo-400"></i>
-                        </div>
-                        <div>
-                            <p class="font-semibold text-lg">Belajar Dasar AI untuk Pemula</p>
-                            <p class="text-sm text-secondary">Dicoding (2024)</p>
-                        </div>
-                    </div>
-                    <!-- Sertifikasi 6: Manajemen Proyek -->
-                    <div
-                        class="card-base p-4 rounded-lg interactive-element flex items-center gap-4 border-l-4 border-teal-500">
-                        <div class="p-3 bg-teal-100 dark:bg-teal-900/30 rounded-full flex-shrink-0">
-                            <i class="fa-solid fa-tasks text-2xl text-teal-600 dark:text-teal-400"></i>
-                        </div>
-                        <div>
-                            <p class="font-semibold text-lg">Belajar Dasar Manajemen Proyek</p>
-                            <p class="text-sm text-secondary">Dicoding (2024)</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
+                <!-- Pengalaman Kerja -->
+                <section id="experience" class="scroll-mt-32">
+                    <h3
+                        class="section-title text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-6 flex items-center">
+                        <i class="fa-solid fa-briefcase mr-3"></i> Pengalaman Kerja
+                    </h3>
 
-        <!-- Footer -->
-        <footer class="mt-12 pt-6 border-t border-gray-200 dark:border-gray-700 text-center text-sm text-secondary">
-            Dibuat dengan semangat & Tailwind CSS | Hak Cipta &copy; 2025 Al Zendry Fillah Akbary
-        </footer>
+                    <div class="space-y-8">
+                        <!-- Item Pengalaman 1 -->
+                        <div class="card-base p-6 rounded-lg interactive-element border-l-4 border-emerald-500">
+                            <div class="flex justify-between items-start flex-wrap">
+                                <h4 class="text-xl font-semibold">[Posisi / Jabatan 1]</h4>
+                                <span class="text-sm font-medium text-secondary">[Bulan Tahun] - [Bulan Tahun /
+                                    Sekarang]</span>
+                            </div>
+                            <p class="text-lg text-secondary mb-3">[Nama Perusahaan]</p>
+                            <ul class="list-disc list-inside text-sm space-y-2 text-secondary">
+                                <li>[Deskripsi pencapaian atau tanggung jawab utama]</li>
+                                <li>[Deskripsi pencapaian atau tanggung jawab utama]</li>
+                                <li>[Deskripsi pencapaian atau tanggung jawab utama]</li>
+                            </ul>
+                        </div>
+
+                        <!-- Item Pengalaman 2 -->
+                        <div class="card-base p-6 rounded-lg interactive-element border-l-4 border-emerald-500">
+                            <div class="flex justify-between items-start flex-wrap">
+                                <h4 class="text-xl font-semibold">[Posisi / Jabatan 2]</h4>
+                                <span class="text-sm font-medium text-secondary">[Bulan Tahun] - [Bulan
+                                    Tahun]</span>
+                            </div>
+                            <p class="text-lg text-secondary mb-3">[Nama Perusahaan]</p>
+                            <ul class="list-disc list-inside text-sm space-y-2 text-secondary">
+                                <li>[Deskripsi pencapaian atau tanggung jawab utama]</li>
+                                <li>[Deskripsi pencapaian atau tanggung jawab utama]</li>
+                                <li>[Deskripsi pencapaian atau tanggung jawab utama]</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Pendidikan -->
+                <section id="education" class="scroll-mt-32">
+                    <h3
+                        class="section-title text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-6 flex items-center">
+                        <i class="fa-solid fa-graduation-cap mr-3"></i> Pendidikan
+                    </h3>
+
+                    <div class="space-y-6">
+                        <!-- Item Pendidikan 1 -->
+                        <div class="card-base p-6 rounded-lg interactive-element border-l-4 border-indigo-500">
+                            <div class="flex justify-between items-start flex-wrap">
+                                <h4 class="text-xl font-semibold">Sarjana Sistem Komputer</h4>
+                                <span class="text-sm font-medium text-secondary">2023 - Sekarang</span>
+                            </div>
+                            <p class="text-lg text-secondary">Universitas Sains dan Teknologi Komputer (STEKOM)</p>
+                            <p class="text-sm text-secondary">IPK: 3.82 / 4.0</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Keahlian Teknis (Skills) -->
+                <section id="skills" class="scroll-mt-32">
+                    <h3
+                        class="section-title text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-6 flex items-center">
+                        <i class="fa-solid fa-microchip mr-3"></i> Keahlian Teknis & Tools
+                    </h3>
+
+                    <div class="card-base p-6 rounded-lg">
+                        <!-- Kategori Keahlian -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                            <!-- Kategori 1: Frontend -->
+                            <div>
+                                <h4 class="text-xl font-semibold mb-3 text-emerald-500">Frontend Development</h4>
+                                <div id="frontend-skills" class="space-y-4">
+                                    <!-- Data skills akan di-render oleh JS -->
+                                </div>
+                            </div>
+
+                            <!-- Kategori 2: Backend & Database -->
+                            <div>
+                                <h4 class="text-xl font-semibold mb-3 text-emerald-500">Backend & Database</h4>
+                                <div id="backend-skills" class="space-y-4">
+                                    <!-- Data skills akan di-render oleh JS -->
+                                </div>
+                            </div>
+
+                            <!-- Kategori 3: DevOps & Tools -->
+                            <div class="md:col-span-2">
+                                <h4 class="text-xl font-semibold mb-3 text-emerald-500">DevOps & Tools</h4>
+                                <div id="devops-skills" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                                    <!-- Data badges akan di-render oleh JS -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Proyek Utama -->
+                <section id="projects" class="scroll-mt-32">
+                    <h3
+                        class="section-title text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-6 flex items-center">
+                        <i class="fa-solid fa-laptop-code mr-3"></i> Proyek Utama
+                    </h3>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Item Proyek 1 -->
+                        <div class="card-base p-6 rounded-lg interactive-element border-t-4 border-indigo-500">
+                            <h4 class="text-xl font-semibold mb-2">Project: [Nama Proyek 1]</h4>
+                            <p class="text-sm text-secondary mb-3">Tahun: [Tahun Proyek]</p>
+                            <p class="text-sm text-secondary mb-4">[Deskripsi singkat proyek. Jelaskan apa yang
+                                dibuat dan
+                                manfaatnya.]</p>
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                <span
+                                    class="bg-indigo-100 text-indigo-800 dark:bg-indigo-800 dark:text-indigo-100 px-2 py-1 rounded-full">[Tech
+                                    1]</span>
+                                <span
+                                    class="bg-indigo-100 text-indigo-800 dark:bg-indigo-800 dark:text-indigo-100 px-2 py-1 rounded-full">[Tech
+                                    2]</span>
+                            </div>
+                        </div>
+
+                        <!-- Item Proyek 2 -->
+                        <div class="card-base p-6 rounded-lg interactive-element border-t-4 border-indigo-500">
+                            <h4 class="text-xl font-semibold mb-2">Project: [Nama Proyek 2]</h4>
+                            <p class="text-sm text-secondary mb-3">Tahun: [Tahun Proyek]</p>
+                            <p class="text-sm text-secondary mb-4">[Deskripsi singkat proyek. Jelaskan apa yang
+                                dibuat dan
+                                manfaatnya.]</p>
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                <span
+                                    class="bg-indigo-100 text-indigo-800 dark:bg-indigo-800 dark:text-indigo-100 px-2 py-1 rounded-full">[Tech
+                                    1]</span>
+                                <span
+                                    class="bg-indigo-100 text-indigo-800 dark:bg-indigo-800 dark:text-indigo-100 px-2 py-1 rounded-full">[Tech
+                                    2]</span>
+                            </div>
+                        </div>
+
+                        <!-- Item Proyek 3 -->
+                        <div class="card-base p-6 rounded-lg interactive-element border-t-4 border-indigo-500">
+                            <h4 class="text-xl font-semibold mb-2">Project: [Nama Proyek 3]</h4>
+                            <p class="text-sm text-secondary mb-3">Tahun: [Tahun Proyek]</p>
+                            <p class="text-sm text-secondary mb-4">[Deskripsi singkat proyek. Jelaskan apa yang
+                                dibuat dan
+                                manfaatnya.]</p>
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                <span
+                                    class="bg-indigo-100 text-indigo-800 dark:bg-indigo-800 dark:text-indigo-100 px-2 py-1 rounded-full">[Tech
+                                    1]</span>
+                                <span
+                                    class="bg-indigo-100 text-indigo-800 dark:bg-indigo-800 dark:text-indigo-100 px-2 py-1 rounded-full">[Tech
+                                    2]</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Penghargaan & Sertifikasi -->
+                <section id="awards" class="scroll-mt-32">
+                    <h3
+                        class="section-title text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-6 flex items-center">
+                        <i class="fa-solid fa-certificate mr-3"></i> Sertifikasi
+                    </h3>
+
+                    <div class="space-y-4">
+                        <!-- Sertifikasi 1: Cloud -->
+                        <div
+                            class="card-base p-4 rounded-lg interactive-element flex items-center gap-4 border-l-4 border-emerald-500">
+                            <div class="p-3 bg-emerald-100 dark:bg-emerald-900/30 rounded-full flex-shrink-0">
+                                <i class="fa-solid fa-cloud text-2xl text-emerald-600 dark:text-emerald-400"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-lg">Belajar Dasar AWS Cloud</p>
+                                <p class="text-sm text-secondary">Dicoding (2025)</p>
+                            </div>
+                        </div>
+                        <!-- Sertifikasi 2: JavaScript -->
+                        <div
+                            class="card-base p-4 rounded-lg interactive-element flex items-center gap-4 border-l-4 border-yellow-500">
+                            <div class="p-3 bg-yellow-100 dark:bg-yellow-900/30 rounded-full flex-shrink-0">
+                                <i class="fa-brands fa-js text-2xl text-yellow-600 dark:text-yellow-400"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-lg">Belajar Dasar Pemrograman JavaScript</p>
+                                <p class="text-sm text-secondary">Dicoding (2025)</p>
+                            </div>
+                        </div>
+                        <!-- Sertifikasi 3: Front-End -->
+                        <div
+                            class="card-base p-4 rounded-lg interactive-element flex items-center gap-4 border-l-4 border-blue-500">
+                            <div class="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-full flex-shrink-0">
+                                <i class="fa-solid fa-code text-2xl text-blue-600 dark:text-blue-400"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-lg">Belajar Membuat Front-End Web untuk Pemula</p>
+                                <p class="text-sm text-secondary">Dicoding (2025)</p>
+                            </div>
+                        </div>
+                        <!-- Sertifikasi 4: Web -->
+                        <div
+                            class="card-base p-4 rounded-lg interactive-element flex items-center gap-4 border-l-4 border-orange-500">
+                            <div class="p-3 bg-orange-100 dark:bg-orange-900/30 rounded-full flex-shrink-0">
+                                <i class="fa-solid fa-globe text-2xl text-orange-600 dark:text-orange-400"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-lg">Belajar Dasar Pemrograman Web</p>
+                                <p class="text-sm text-secondary">Dicoding (2024)</p>
+                            </div>
+                        </div>
+                        <!-- Sertifikasi 5: AI -->
+                        <div
+                            class="card-base p-4 rounded-lg interactive-element flex items-center gap-4 border-l-4 border-indigo-500">
+                            <div class="p-3 bg-indigo-100 dark:bg-indigo-900/30 rounded-full flex-shrink-0">
+                                <i class="fa-solid fa-robot text-2xl text-indigo-600 dark:text-indigo-400"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-lg">Belajar Dasar AI untuk Pemula</p>
+                                <p class="text-sm text-secondary">Dicoding (2024)</p>
+                            </div>
+                        </div>
+                        <!-- Sertifikasi 6: Manajemen Proyek -->
+                        <div
+                            class="card-base p-4 rounded-lg interactive-element flex items-center gap-4 border-l-4 border-teal-500">
+                            <div class="p-3 bg-teal-100 dark:bg-teal-900/30 rounded-full flex-shrink-0">
+                                <i class="fa-solid fa-tasks text-2xl text-teal-600 dark:text-teal-400"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-lg">Belajar Dasar Manajemen Proyek</p>
+                                <p class="text-sm text-secondary">Dicoding (2024)</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Footer -->
+            <footer class="mt-12 pt-6 border-t border-gray-200 dark:border-gray-700 text-center text-sm text-secondary">
+                Dibuat dengan semangat & Tailwind CSS | Hak Cipta &copy; 2025 Al Zendry Fillah Akbary
+            </footer>
 
     </div>
 
