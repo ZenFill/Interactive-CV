@@ -8,24 +8,62 @@
 // [PANDUAN]: Ubah data di bawah ini sesuai keahlian Anda. Level: 0 - 100.
 // Frontend
 const frontendSkills = [
-  { name: "HTML5 & CSS3", level: 90, icon: "fa-brands fa-html5" },
-  { name: "JavaScript (ES6+)", level: 85, icon: "fa-brands fa-js" },
-  { name: "Tailwind CSS", level: 90, icon: "fa-solid fa-wind" },
+  {
+    name: "HTML5 & CSS3",
+    level: 90,
+    icon: "fa-brands fa-html5",
+    color: "text-orange-600",
+  },
+  {
+    name: "JavaScript (ES6+)",
+    level: 85,
+    icon: "fa-brands fa-js",
+    color: "text-yellow-500",
+  },
+  {
+    name: "Tailwind CSS",
+    level: 90,
+    icon: "fa-solid fa-wind",
+    color: "text-cyan-500",
+  },
 ];
 
 // Backend
 const backendSkills = [
-  { name: "PHP", level: 80, icon: "fa-brands fa-php" },
-  { name: "Laravel", level: 75, icon: "fa-brands fa-laravel" },
-  { name: "MySQL", level: 80, icon: "fa-solid fa-database" },
+  {
+    name: "PHP",
+    level: 80,
+    icon: "fa-brands fa-php",
+    color: "text-indigo-600",
+  },
+  {
+    name: "Laravel",
+    level: 75,
+    icon: "fa-brands fa-laravel",
+    color: "text-red-600",
+  },
+  {
+    name: "MySQL",
+    level: 80,
+    icon: "fa-solid fa-database",
+    color: "text-blue-500",
+  },
 ];
 
 // Tools / DevOps (Badges only)
 const devOpsTools = [
-  { name: "Git", icon: "fa-brands fa-git-alt" },
-  { name: "GitHub", icon: "fa-brands fa-github" },
-  { name: "VS Code", icon: "fa-solid fa-code" },
-  { name: "Postman", icon: "fa-solid fa-paper-plane" },
+  { name: "Git", icon: "fa-brands fa-git-alt", color: "text-orange-600" },
+  {
+    name: "GitHub",
+    icon: "fa-brands fa-github",
+    color: "text-slate-800 dark:text-white",
+  },
+  { name: "VS Code", icon: "fa-solid fa-code", color: "text-blue-500" },
+  {
+    name: "Postman",
+    icon: "fa-solid fa-paper-plane",
+    color: "text-orange-500",
+  },
 ];
 
 // --- Fungsi Utama JavaScript ---
@@ -58,11 +96,8 @@ function renderSkills() {
   }
 
   // Render Skill Item (Premium Card Style)
+  // Render Skill Item (Premium Card Style)
   const renderSkillItem = (skill, colorClass) => {
-    // Extract text color class from bg class (e.g. bg-emerald-500 -> text-emerald-500)
-    const textColorClass = colorClass.replace("bg-", "text-");
-    const borderColorClass = colorClass.replace("bg-", "border-");
-
     // Helper to get friendly label
     const getLevelLabel = (level) => {
       if (level >= 90) return "Expert";
@@ -72,6 +107,12 @@ function renderSkills() {
     };
 
     const levelLabel = getLevelLabel(skill.level);
+
+    // Gunakan warna spesifik dari data jika ada, atau fallback ke default
+    const specificTextColor = skill.color || "text-gray-500";
+
+    // Background gradient tetap menggunakan colorClass (generic)
+    const gradientColor = colorClass.replace("bg-", "text-"); // Hack untuk dapat color base
 
     return `
                 <div class="group interactive-element relative bg-white dark:bg-slate-800 p-4 rounded-xl border border-gray-200 dark:border-gray-700 flex items-center gap-4 hover:shadow-lg dark:hover:shadow-indigo-900/20 transition-all duration-300 hover:-translate-y-1 overflow-hidden">
@@ -85,16 +126,16 @@ function renderSkills() {
                     <div class="relative p-3 rounded-lg bg-gray-50 dark:bg-slate-700 group-hover:bg-white dark:group-hover:bg-slate-800 transition-colors shadow-sm group-hover:shadow-md">
                         <i class="${
                           skill.icon
-                        } ${textColorClass} text-2xl transition-transform group-hover:scale-110 duration-300"></i>
+                        } ${specificTextColor} text-3xl transition-transform group-hover:scale-110 duration-300"></i>
                     </div>
 
                     <!-- Content -->
                     <div class="flex-1 relative z-10">
                         <div class="flex justify-between items-center">
-                            <span class="font-bold text-gray-700 dark:text-gray-200 text-lg group-hover:${textColorClass} transition-colors">${
+                            <span class="font-bold text-gray-700 dark:text-gray-200 text-lg group-hover:${gradientColor} transition-colors">${
       skill.name
     }</span>
-                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-gray-100 dark:bg-slate-700 group-hover:bg-white dark:group-hover:bg-slate-600 border border-transparent group-hover:${borderColorClass}300 ${textColorClass} transition-all shadow-sm">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-gray-100 dark:bg-slate-700 group-hover:bg-white dark:group-hover:bg-slate-600 border border-transparent ${specificTextColor} transition-all shadow-sm">
                                 ${levelLabel}
                             </span>
                         </div>
@@ -103,23 +144,33 @@ function renderSkills() {
             `;
   };
 
-  // Render Tool Item (Modern Glass Chip)
-  const renderToolItem = (tool) => `
-        <div class="interactive-element group flex flex-col items-center justify-center p-4 bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-700 hover:shadow-md transition-all duration-300 cursor-default hover:-translate-y-1">
-            <i class="${tool.icon} text-3xl mb-2 text-gray-400 group-hover:text-indigo-500 transition-colors duration-300"></i>
-            <span class="font-semibold text-sm text-gray-600 dark:text-gray-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">${tool.name}</span>
-        </div>
-    `;
+  // Render Tool Item (Vertical Card)
+  const renderToolItem = (tool) => {
+    const specificTextColor = tool.color || "text-indigo-500";
 
+    return `
+            <div class="group interactive-element flex flex-col items-center justify-center p-6 bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:shadow-lg dark:hover:shadow-indigo-900/20 transition-all duration-300 hover:-translate-y-1 overflow-hidden relative">
+                 <!-- Hover Gradient Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-br from-indigo-50 to-transparent opacity-0 group-hover:opacity-30 transition-opacity duration-300 pointer-events-none"></div>
+
+                <div class="relative p-3 rounded-full bg-gray-50 dark:bg-slate-700 mb-3 group-hover:scale-110 transition-transform duration-300">
+                    <i class="${tool.icon} ${specificTextColor} text-4xl transition-transform duration-300"></i>
+                </div>
+                <span class="font-semibold text-gray-700 dark:text-gray-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors relative z-10">${tool.name}</span>
+            </div>
+        `;
+  };
+
+  // Inject content
   frontendContainer.innerHTML = frontendSkills
-    .map((s) => renderSkillItem(s, "bg-emerald-500"))
+    .map((skill) => renderSkillItem(skill, "bg-emerald-500"))
     .join("");
   backendContainer.innerHTML = backendSkills
-    .map((s) => renderSkillItem(s, "bg-blue-500"))
+    .map((skill) => renderSkillItem(skill, "bg-blue-500"))
     .join("");
-
-  // Render Badges (Tools)
-  devopsContainer.innerHTML = devOpsTools.map(renderToolItem).join("");
+  devopsContainer.innerHTML = devOpsTools
+    .map((tool) => renderToolItem(tool))
+    .join("");
 }
 
 /**
