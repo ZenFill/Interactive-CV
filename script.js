@@ -57,10 +57,11 @@ function renderSkills() {
     return;
   }
 
-  // Render Skill Item (Modern Card Style - No Percentages)
+  // Render Skill Item (Premium Card Style)
   const renderSkillItem = (skill, colorClass) => {
     // Extract text color class from bg class (e.g. bg-emerald-500 -> text-emerald-500)
     const textColorClass = colorClass.replace("bg-", "text-");
+    const borderColorClass = colorClass.replace("bg-", "border-");
 
     // Helper to get friendly label
     const getLevelLabel = (level) => {
@@ -73,32 +74,40 @@ function renderSkills() {
     const levelLabel = getLevelLabel(skill.level);
 
     return `
-                <div class="interactive-element bg-gray-50 dark:bg-slate-700/50 p-4 rounded-xl border border-gray-100 dark:border-gray-600 flex items-center gap-4 hover:shadow-md transition-shadow duration-300">
-                    <div class="p-3 ${colorClass} bg-opacity-10 dark:bg-opacity-20 rounded-lg text-2xl">
+                <div class="group interactive-element relative bg-white dark:bg-slate-800 p-4 rounded-xl border border-gray-200 dark:border-gray-700 flex items-center gap-4 hover:shadow-lg dark:hover:shadow-indigo-900/20 transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+                    <!-- Hover Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-r ${colorClass.replace(
+                      "500",
+                      "50"
+                    )} to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none"></div>
+                    
+                    <!-- Icon Container -->
+                    <div class="relative p-3 rounded-lg bg-gray-50 dark:bg-slate-700 group-hover:bg-white dark:group-hover:bg-slate-800 transition-colors shadow-sm group-hover:shadow-md">
                         <i class="${
                           skill.icon
-                        } ${textColorClass} dark:${textColorClass.replace(
-      "500",
-      "400"
-    )}"></i>
+                        } ${textColorClass} text-2xl transition-transform group-hover:scale-110 duration-300"></i>
                     </div>
-                    <div class="flex-1">
+
+                    <!-- Content -->
+                    <div class="flex-1 relative z-10">
                         <div class="flex justify-between items-center">
-                            <span class="font-bold text-gray-700 dark:text-gray-200 text-lg">${
-                              skill.name
-                            }</span>
-                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-white dark:bg-slate-600 border border-gray-200 dark:border-gray-500 ${textColorClass}">${levelLabel}</span>
+                            <span class="font-bold text-gray-700 dark:text-gray-200 text-lg group-hover:${textColorClass} transition-colors">${
+      skill.name
+    }</span>
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-gray-100 dark:bg-slate-700 group-hover:bg-white dark:group-hover:bg-slate-600 border border-transparent group-hover:${borderColorClass}300 ${textColorClass} transition-all shadow-sm">
+                                ${levelLabel}
+                            </span>
                         </div>
                     </div>
                 </div>
             `;
   };
 
-  // Render Tool Item (Chip Style)
+  // Render Tool Item (Modern Glass Chip)
   const renderToolItem = (tool) => `
-        <div class="interactive-element flex items-center gap-2 bg-gray-100 dark:bg-slate-700 px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600 hover:bg-white dark:hover:bg-slate-600 transition-colors shadow-sm">
-            <i class="${tool.icon} text-indigo-600 dark:text-indigo-400"></i>
-            <span class="font-medium text-sm text-gray-700 dark:text-gray-200">${tool.name}</span>
+        <div class="interactive-element group flex flex-col items-center justify-center p-4 bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-700 hover:shadow-md transition-all duration-300 cursor-default hover:-translate-y-1">
+            <i class="${tool.icon} text-3xl mb-2 text-gray-400 group-hover:text-indigo-500 transition-colors duration-300"></i>
+            <span class="font-semibold text-sm text-gray-600 dark:text-gray-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">${tool.name}</span>
         </div>
     `;
 
