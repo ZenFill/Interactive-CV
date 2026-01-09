@@ -57,10 +57,20 @@ function renderSkills() {
     return;
   }
 
-  // Render Skill Item (Modern Card Style)
+  // Render Skill Item (Modern Card Style - No Percentages)
   const renderSkillItem = (skill, colorClass) => {
     // Extract text color class from bg class (e.g. bg-emerald-500 -> text-emerald-500)
     const textColorClass = colorClass.replace("bg-", "text-");
+
+    // Helper to get friendly label
+    const getLevelLabel = (level) => {
+      if (level >= 90) return "Expert";
+      if (level >= 75) return "Advanced";
+      if (level >= 50) return "Intermediate";
+      return "Beginner";
+    };
+
+    const levelLabel = getLevelLabel(skill.level);
 
     return `
                 <div class="interactive-element bg-gray-50 dark:bg-slate-700/50 p-4 rounded-xl border border-gray-100 dark:border-gray-600 flex items-center gap-4 hover:shadow-md transition-shadow duration-300">
@@ -73,18 +83,11 @@ function renderSkills() {
     )}"></i>
                     </div>
                     <div class="flex-1">
-                        <div class="flex justify-between mb-2">
-                            <span class="font-bold text-gray-700 dark:text-gray-200">${
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-gray-700 dark:text-gray-200 text-lg">${
                               skill.name
                             }</span>
-                            <span class="text-xs font-bold ${textColorClass}">${
-      skill.level
-    }%</span>
-                        </div>
-                        <div class="w-full bg-gray-200 rounded-full h-2 dark:bg-gray-700 overflow-hidden">
-                            <div class="progress-bar-fill ${colorClass} h-2 rounded-full" style="--progress-width: ${
-      skill.level
-    }%"></div>
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-white dark:bg-slate-600 border border-gray-200 dark:border-gray-500 ${textColorClass}">${levelLabel}</span>
                         </div>
                     </div>
                 </div>
