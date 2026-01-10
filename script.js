@@ -191,29 +191,14 @@ function initializeThemeToggle() {
 
   if (!themeToggle) return;
 
-  // Icon configurations
-  const moonIcon = '<i class="fa-solid fa-moon w-5 h-5"></i>';
-  const sunIcon = '<i class="fa-solid fa-sun w-5 h-5"></i>';
-
-  // Update icon check
-  const updateIcon = () => {
-    const isDark = html.classList.contains("dark");
-    themeToggle.innerHTML = isDark ? sunIcon : moonIcon;
-    // Update aria-label for accessibility
-    themeToggle.setAttribute(
-      "aria-label",
-      isDark ? "Switch to Light Mode" : "Switch to Dark Mode"
-    );
-  };
-
-  // Initial sync
-  updateIcon();
-
-  // Event Listener
+  // Toggle theme on click
   themeToggle.addEventListener("click", () => {
-    const isDark = html.classList.toggle("dark");
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-    updateIcon();
+    html.classList.toggle("dark");
+    if (html.classList.contains("dark")) {
+      localStorage.setItem("theme", "dark");
+    } else {
+      localStorage.setItem("theme", "light");
+    }
 
     // Small animation effect
     themeToggle.classList.add("scale-90");
